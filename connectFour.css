@@ -1,0 +1,25 @@
+.board{
+    height: 350px;
+    width: 416px;
+    background-color: blue;
+    border: 2px; red;
+    outline: 2px; red;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+}
+    
+.column{
+    background-color: lightskyblue;
+    height: 300px;
+    width: 350px;
+    margin: 2px;
+    flex-direction: column-reverse;
+    
+} 
+
+.square{
+    background-color: white;
+    height: 48px;
+    width: 48px;
+}
