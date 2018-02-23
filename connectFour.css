@@ -1,3 +1,4 @@
+
 .board{
     height: 350px;
     width: 416px;
@@ -15,24 +16,25 @@
     width: 350px;
     margin: 2px;
     display: flex;
-    flex-direction: column-reverse;
-    
+    flex-direction: column-reverse; 
 } 
+
 
 .square{
     background-color: white;
     height: 48px;
     width: 48px;
+    margin: 1px 3px;
+    border-radius: 25px;
+    box-shadow: 1px 2px rgb(95, 155, 179);
 }
+
 
 .piece1{
     background-color: red;
-
-
 }
 
+
 .piece2{
-    background-color: black;1
-
-
+    background-color: black;
 }
