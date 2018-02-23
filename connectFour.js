@@ -1,39 +1,65 @@
 
-let x=document.getElementById("background");
+let columnPlacement=document.getElementById("background");
+// let boxPlacement=document.getElementById("event.target.id");
 let currentPlayerPiece="piece1";
 let nextPlayerPiece="piece2";
 
 
 
 // dynamically create 7 columns, add class & unique id //
-for(i=0;i<7;i++){
+for (let i=0;i<7;i++){
     let rectangle=document.createElement("div");
-    rectangle.setAttribute("class","column");
-    let columnId="column" + i;
+    rectangle.setAttribute("class", "column");
+    let columnId = "column-" + i;
     rectangle.setAttribute("id", columnId);
 
-    x.appendChild(rectangle);
+    columnPlacement.appendChild(rectangle);
 
  // create an action whenever user clicks & identify the clicked column //
     rectangle.addEventListener("click", clickEvent);
-    function clickEvent(event){
-        let clickLocation=event.target;
-        console.log(clickLocation);
-// add class upon click //        
-        event.target.classList.add(currentPlayerPiece);
-
-// alternate class attributes //
-        let playerPieceHolder=currentPlayerPiece;
-        currentPlayerPiece=nextPlayerPiece;
-        nextPlayerPiece=playerPieceHolder;
-        
-
-        
-    }
     
 
 }
 
+function clickEvent(event) {
+    const column = event.currentTarget;
+    // separates the column id numeral //
+    const columnIndex = column.id.split('-')[1];
+    const squaresInColumn = document.querySelectorAll(`#${column.id} .square`);
+    const squareCountInColumn = squaresInColumn.length;
+    console.log(column);
+    console.log(columnIndex);
+    console.log(squareCountInColumn);
+
+// ...
+
+    // column.appendChild(box);
+// create a new div whenever and wherever a click occurs //
+        // let boxPlacement=document.getElementById("event.target.id");
+        let box=document.createElement("div");
+        box.classList.add("square")
+        box.classList.add(currentPlayerPiece);
+        let j=(clickEvent.length)-1;
+        console.log(j);  
+        let squareId="square" + j;
+        console.log(squareId);
+        box.id=squareId;
+        column.appendChild(box);
+
+    
+
+// alternate class attributes //
+    let playerPieceHolder=currentPlayerPiece;
+    currentPlayerPiece=nextPlayerPiece;
+    nextPlayerPiece=playerPieceHolder;
+    
+
+    
+
+    // function newFunction() {
+    //     console.log(clickEvent.length);
+    // }
+}
 
 
 
