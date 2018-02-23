@@ -1,7 +1,11 @@
 
 let x=document.getElementById("background");
+let currentPlayerPiece="piece1";
+let nextPlayerPiece="piece2";
 
 
+
+// dynamically create 7 columns, add class & unique id //
 for(i=0;i<7;i++){
     let rectangle=document.createElement("div");
     rectangle.setAttribute("class","column");
@@ -10,14 +14,26 @@ for(i=0;i<7;i++){
 
     x.appendChild(rectangle);
 
+ // create an action whenever user clicks & identify the clicked column //
     rectangle.addEventListener("click", clickEvent);
     function clickEvent(event){
         let clickLocation=event.target;
         console.log(clickLocation);
+// add class upon click //        
+        event.target.classList.add(currentPlayerPiece);
+
+// alternate class attributes //
+        let playerPieceHolder=currentPlayerPiece;
+        currentPlayerPiece=nextPlayerPiece;
+        nextPlayerPiece=playerPieceHolder;
+        
+
+        
     }
     
 
 }
+
 
 
 
