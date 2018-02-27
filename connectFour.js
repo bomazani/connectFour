@@ -3,7 +3,7 @@ let columnPlacement = document.getElementById("background");
 let currentPlayerPiece = "player1";
 let nextPlayerPiece = "player2";
 let totalMoves=0 // set constant to determine if the game is a draw see line 53 //
-
+let winner = 0;
 
 
 let board = [
@@ -24,11 +24,14 @@ for (let i = 0; i < 7; i++) {
     rectangle.setAttribute("id", columnId);
     columnPlacement.appendChild(rectangle);
 
+
+    
     // create an action whenever user clicks & identify the clicked column //
     rectangle.addEventListener("click", clickEvent);
+    
 }
 
-    let winner = 0; // set constant to end game if a win has occurred. see winner=++ on lines 87, 106, 126, 146 //
+    // let winner = 0; // set constant to end game if a win has occurred. see winner=++ on lines 87, 106, 126, 146 //
     // const totalMoves=0 // set constant to determine if the game is a draw see line 52 //
     
 
@@ -40,17 +43,21 @@ for (let i = 0; i < 7; i++) {
         const squareCountInColumn = squaresInColumn.length;
 
 
+
         // create a new div whenever and wherever a click occurs //
-        let square = document.createElement("div");
-        square.classList.add("square")
-        square.classList.add(currentPlayerPiece);
-        let squareIndex = squareCountInColumn;
-        square.id = "square-" + squareIndex;
-        // Prevent more than 6 elements per column //
-        if (squareIndex < 6){
-            column.appendChild(square);
-        }
-        
+            let square = document.createElement("div");
+            square.classList.add("square")
+            square.classList.add(currentPlayerPiece);
+            let squareIndex = squareCountInColumn;
+            square.id = "square-" + squareIndex;
+            // Prevent additional elements if a winner has been declared. //
+            if (winner<1){
+            // Prevent more than 6 elements per column //
+                if (squareIndex < 6){
+                column.appendChild(square);
+                }
+            }
+  
         
         
         
@@ -86,11 +93,11 @@ for (let i = 0; i < 7; i++) {
             // Only check if cell is filled
             if(cell !== 0) {
             
-            // Check the next two cells for the same value
-            if(cell === board[y][x+1] && cell === board[y][x+2] && cell === board[y][x+3] ) {
-                console.log("4 in a row found at " + (x+1) + ":" + (y+1));
-                winner = winner + 1; // see line 28, "const winner = 0" // 
-            }
+                // Check the next two cells for the same value
+                if(cell === board[y][x+1] && cell === board[y][x+2] && cell === board[y][x+3] ) {
+                    console.log("4 in a row found at " + (x+1) + ":" + (y+1));
+                    winner = winner + 1; // see line 6, "let winner = 0" // 
+                }
             }
         }
       }
@@ -108,7 +115,7 @@ for (let i = 0; i < 7; i++) {
                 // Check the next two cells for the same value
                 if(cell === board[y+1][x] && cell === board[y+2][x]  && cell === board[y+3][x] ) {
                 console.log("4 in a row found at " + (x+1) + ":" + (y+1));
-                winner = winner + 1; // see line 28, "const winner = 0" //
+                winner = winner + 1; // see line 6, "let winner = 0" //
                 }
             }
         }
@@ -128,7 +135,7 @@ for (let i = 0; i < 7; i++) {
                 // Check the next two cells for the same value
                 if(cell === board[y+1][x+1] && cell === board[y+2][x+2] && cell === board[y+3][x+3] ) {
                 console.log("4 in a row up-right found at " + (x+1) + ":" + (y+1));
-                winner = winner + 1; // see line 28, "const winner = 0" //
+                winner = winner + 1; // see line 6, "let winner = 0" //
                 }
             }
         }
@@ -148,7 +155,7 @@ for (let i = 0; i < 7; i++) {
                 // Check the next two cells for the same value
                 if(cell === board[y-1][x+1] && cell === board[y-2][x+2] && cell === board[y-3][x+3] ) {
                 console.log("4 in a row up-left found at " + (x+1) + ":" + (y+1));
-                winner = winner + 1; // see line 28, "const winner = 0" //
+                winner = winner + 1; // see line 6, "let winner = 0" //
                 }
             }
         }
@@ -158,21 +165,18 @@ for (let i = 0; i < 7; i++) {
         let playerPieceTemporaryHolder = currentPlayerPiece;
         currentPlayerPiece = nextPlayerPiece;
         nextPlayerPiece = playerPieceTemporaryHolder;
+    // Increase totalMoves count. If totalMoves=42, a draw is declared. //
     totalMoves = totalMoves + 1;
-    
-    
-    console.log(totalMoves);
-  
+    console.log("totalMoves = " + totalMoves);
     if(totalMoves==42){
         document.getElementById("message").textContent="We have a DRAW!";
-
         console.log("we have a DRAW!");
     }
 
+    // If winner==1, a winner is declared; otherwise, play continues. //
     console.log(winner);
-      if(winner==1){
+    if(winner==1){
         document.getElementById("message").textContent="We have a Winner!";
-
         console.log("we have a WINNER!");
     }
     }
