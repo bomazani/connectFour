@@ -4,6 +4,8 @@ let currentPlayerPiece = "player1";
 let nextPlayerPiece = "player2";
 let totalMoves=0 // set constant to determine if the game is a draw see line 53 //
 
+
+
 let board = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],

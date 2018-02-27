@@ -38,3 +38,11 @@
 .player2{
     background-color: black;
 }
+
+.redCursor {
+    cursor: url('redPiece.png'), auto;	
+}
+
+.blackCursor {
+    cursor: url('blackPiece.png'), auto;	
+}
