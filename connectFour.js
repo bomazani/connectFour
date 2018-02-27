@@ -60,13 +60,15 @@ for (let i = 0; i < 7; i++) {
 
         // The following line is a ** ternary expression ** that replaces
         // the four lines of if/else that immediately follows.
-        board[squareIndex][columnIndex] = (currentPlayerPiece === "player1" ? 1 : 2);
-        // if (currentPlayerPiece === "player1") {
-        //     board[squareIndex][columnIndex] = 1;
-        // } else {
-        //     board[squareIndex][columnIndex] = 2;
-        // }
-    
+        // board[squareIndex][columnIndex] = (currentPlayerPiece === "player1" ? 1 : 2);
+        if (currentPlayerPiece === "player1") {
+            board[squareIndex][columnIndex] = 1;
+            columnPlacement.setAttribute("class","board blackCursor");
+        } else {
+            board[squareIndex][columnIndex] = 2;
+            columnPlacement.setAttribute("class","board redCursor");
+        }
+        
 
         // Set edges for the "board" //
         // Edges will prevent "out of bounds" while searching for winner. //
@@ -162,11 +164,15 @@ for (let i = 0; i < 7; i++) {
     console.log(totalMoves);
   
     if(totalMoves==42){
+        document.getElementById("message").textContent="We have a DRAW!";
+
         console.log("we have a DRAW!");
     }
 
     console.log(winner);
       if(winner==1){
+        document.getElementById("message").textContent="We have a Winner!";
+
         console.log("we have a WINNER!");
     }
     }

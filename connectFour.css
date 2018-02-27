@@ -16,7 +16,8 @@
     width: 350px;
     margin: 2px;
     display: flex;
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
+    box-shadow: 2px 4px rgb(23, 23, 182); 
 } 
 
 
@@ -40,9 +41,11 @@
 }
 
 .redCursor {
-    cursor: url('redPiece.png'), auto;	
+    /* cursor: url('/redPiece.png') 5 5, auto; */
+    cursor: url('/thinkingBobMedium.png') 5 5, auto;	
 }
 
 .blackCursor {
-    cursor: url('blackPiece.png'), auto;	
+    /* cursor: url('/blackPiece.png') 5 5, auto; */
+    cursor: url('/crazyBobMedium.png') 5 5, auto;	
 }
