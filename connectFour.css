@@ -33,19 +33,26 @@
 
 .player1{
     background-color: red;
+    /* background-Image: url('/thinkingBobMedium.png') */
 }
 
 
 .player2{
     background-color: black;
+    /* background-Image: url('/crazyBobMedium.png') */ 
 }
 
 .redCursor {
-    /* cursor: url('/redPiece.png') 5 5, auto; */
-    cursor: url('/thinkingBobMedium.png') 5 5, auto;	
+    cursor: url('/redPiece.png') 5 5, auto;
+    /* cursor: url('/thinkingBobMedium.png') 5 5, auto;	 */
+    /* cursor: url(/Users/roberthunt/assessment/connectFour/crazyBobMedium.png); */
+    /* cursor: url(/redPieceLarge.png) 5 5, auto; */
+    /* cursor: url('/thinkingBobMedium.png') auto; */
 }
 
 .blackCursor {
-    /* cursor: url('/blackPiece.png') 5 5, auto; */
-    cursor: url('/crazyBobMedium.png') 5 5, auto;	
+    cursor: url('/blackPiece.png') 5 5, auto;
+    /* cursor: url('/crazyBobMedium.png') 5 5, auto; */
+    /* cursor: url('/crazyBobMedium.png') auto;	 */
+    
 }
